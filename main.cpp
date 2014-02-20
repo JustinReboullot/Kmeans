@@ -5,9 +5,11 @@
 
 #include <iostream>
 #include <vector>
+#include "Kmeans.h"
+
 using namespace std;
 
-#include "Kmeans.h"
+///////////// Création des données /////////
 
 int main()
 {
@@ -35,9 +37,6 @@ int main()
 	c[1][0] = 0.5;
 	c[1][1] = -0.5;
 
-
-  int bite;
-
 /////////////////////////////////////////////////
 
 
@@ -60,10 +59,5 @@ int main()
 	Km.FindGroup();
 	Km.DisplayGpSize();
 	Km.DisplayGpIndex();
-
-
-	// system("PAUSE");
-
-	cin >> bite;
 	return 0;
 }

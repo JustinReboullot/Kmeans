@@ -48,8 +48,6 @@ Kmeans::~Kmeans(void)
 }
 
 
-
-
 void Kmeans::FindGroup()
 {
 	//memset(_gpSize, 0, sizeof(_gpSize)); //Initializes the size of each group to zero.

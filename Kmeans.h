@@ -1,12 +1,9 @@
-//#define K 2     // Number of groups = 2
-//#define D 2    // Dimension = 2
-//#define N 10  // Number of vectors to classify = 10
+#define D1 2
+#include <vector>
 
 #pragma once
-#include <vector>
 using namespace std;
-#define D1 2
-// double** data permet une initialisation plus directe voir main() 
+
 
 class Kmeans
 {
@@ -19,10 +16,9 @@ void DisplayGpIndex();
 void DisplayCentroids();
 void DisplayGpSize();
 int _D, _N, _K;
-vector<int> _gpIndex;                     //vector containing the group number of each vector.
-vector< vector<double> > _data;          //the N vectors of dimension D
-vector< vector<double> >  _centroids;   //the K centroids
-vector<int> _gpSize;   
+vector<int> _gpIndex;  //vector containing the group number of each vector.
+vector< vector<double> >  _centroids;  //the K centroids
+vector<int> _gpSize;  //a vector containing the size of each group.
 private:
-                 //a vector containing the size of each group.
+vector< vector<double> > _data;  //the N vectors of dimension D
 }; 
