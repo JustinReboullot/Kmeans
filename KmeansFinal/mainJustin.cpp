@@ -63,7 +63,7 @@ bool init()
 //Draw a grid and the different points.
 void FillScreenData(SDL_Surface* screen, const Kmeans& Km)
 {
-	//Define the colors of each groups
+	//Define the colors of each groups. Can only go to 5 groups !!
 	Uint8 groupColors[5][3];
 	groupColors[0][0] = 255;
 	groupColors[0][1] = 0;
@@ -86,7 +86,7 @@ void FillScreenData(SDL_Surface* screen, const Kmeans& Km)
  
 	makeGrid(screen, SCREEN_WIDTH, SCREEN_HEIGHT); //Generate a grid. We can put (SCREEN_WIDTH/10 - 1)(SCREEN_HEIGHT/10 - 1) on this grid.
 
-		for (int n = 0; n < N1; n++)
+		for (int n = 0; n < Km._N; n++)
 			{
 				for (int k = 0; k < Km._K; k++)
 				{
