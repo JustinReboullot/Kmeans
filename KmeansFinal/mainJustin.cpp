@@ -63,28 +63,43 @@ bool init()
 //Draw a grid and the different points.
 void FillScreenData(SDL_Surface* screen, const Kmeans& Km)
 {
+	//Define the colors of each groups
+	Uint8 groupColors[5][3];
+	groupColors[0][0] = 255;
+	groupColors[0][1] = 0;
+	groupColors[0][2] = 0;
+	groupColors[1][0] = 0;
+	groupColors[1][1] = 0;
+	groupColors[1][2] = 255;
+	groupColors[2][0] = 0;
+	groupColors[2][1] = 255;
+	groupColors[2][2] = 0;
+	groupColors[3][0] = 255;
+	groupColors[3][1] = 0;
+	groupColors[3][2] = 255;
+	groupColors[4][0] = 0;
+	groupColors[4][1] = 255;
+	groupColors[4][2] = 255;
+
+
 	SDL_FillRect( screen, &screen->clip_rect, SDL_MapRGB( screen->format, 0xFF, 0xFF, 0xFF ) );
  
 	makeGrid(screen, SCREEN_WIDTH, SCREEN_HEIGHT); //Generate a grid. We can put (SCREEN_WIDTH/10 - 1)(SCREEN_HEIGHT/10 - 1) on this grid.
 
-
-		for (int k = 0; k < K1; k++)
-		{
-			for (int n = 0; n < N1; n++)
+		for (int n = 0; n < N1; n++)
+			{
+				for (int k = 0; k < Km._K; k++)
 				{
-					switch (Km._gpIndex[n])
+					if ( Km._gpIndex[n] == k )
 					{
-						case 0:
-							filledEllipseRGBA(screen, convertX(Km._data[n][0], SCREEN_WIDTH), convertY(Km._data[n][1], SCREEN_HEIGHT), 5, 5, 255, 0, 0, 255);
-							break;
-						case 1:
-							filledEllipseRGBA(screen, convertX(Km._data[n][0], SCREEN_WIDTH), convertY(Km._data[n][1], SCREEN_HEIGHT), 5, 5, 0, 0, 255, 255);
-							break;
+						filledEllipseRGBA(screen, convertX(Km._data[n][0], SCREEN_WIDTH), convertY(Km._data[n][1], SCREEN_HEIGHT), 5, 5, groupColors[k][0], groupColors[k][1], groupColors[k][2], 100);
 					}
 				}
-			filledEllipseRGBA(screen, convertX(Km._centroids[k][0], SCREEN_WIDTH), convertY(Km._centroids[k][1], SCREEN_HEIGHT), 5, 5, 150, 150, 150, 255);
+			}
+		for (int k =0; k < Km._K; k++)
+		{
+			filledEllipseRGBA(screen, convertX(Km._centroids[k][0], SCREEN_WIDTH), convertY(Km._centroids[k][1], SCREEN_HEIGHT), 5, 5, groupColors[k][0], groupColors[k][1], groupColors[k][2], 255);
 		}
-
 }
 
 //Handle when one presses the right arrow on keyboard. Takes in entry whether to do FindGroup or FindCentroids.
