@@ -20,7 +20,6 @@ Kmeans::Kmeans(string data , string centroids )
 		// Allocation de la mémoire
 		_data = vector< vector<double> >(_N);
 		_gpIndex = vector<int>(_N);
-		_centroids = vector< vector<double> >(_D);
 
 		for(int i = 0; i< _N; i++)
 		{
@@ -48,6 +47,7 @@ Kmeans::Kmeans(string data , string centroids )
 
 		// Allocation de la mémoire
 	    _gpSize = vector<int>(_K);
+		_centroids = vector< vector<double> >(_K);
 
 		for (int i = 0; i < _K; i++)
 		{
@@ -80,8 +80,7 @@ void Kmeans::FindGroup()
 
 	for (int i = 0; i < _N; i++)  //Pour chaque vecteur de data
 	{	
-		double normref = 0;  
-		double norm = 0; 
+		double normref = 0;//Initialize the 'norm of reference" for point i.
 
 		for(int d = 0; d < _D; d++)
 		{
@@ -91,6 +90,7 @@ void Kmeans::FindGroup()
 
 		for(int k = 1; k < _K; k++)  //On calcule chaque autre norme en la comparant avec celle associé au premier barycentre.
 		{
+			double norm = 0; //Initialize the norm between point i and centroid k to 0.
 			for(int d = 0; d < _D; d++)
 			{
 				norm += (_data[i][d] - _centroids[k][d])*(_data[i][d] - _centroids[k][d]);
@@ -137,34 +137,3 @@ void Kmeans::FindCentroids()
 		}
 	}
 }
-
-void Kmeans::DisplayGpIndex()
-{
-	cout << " Indices :" << endl;
-	for (int i = 0 ; i < _N ; i++)
-	{
-		cout << _gpIndex[i] << endl;
-	}
-}//It was to debug code : should not be ther if it is.
-
-void Kmeans::DisplayCentroids()
-{
-	cout << " Centroids :" << endl;
-	for (int i = 0 ; i < _K ; i++)
-	{
-		for( int j = 0 ; j < _D ; j++)
-		{
-			cout << _centroids[i][j] << " " ;
-		}
-		cout << endl;
-	}
-}//It was to debug code : should not be ther if it is.
-
-void Kmeans::DisplayGpSize()
-{
-	cout << "Group sizes : " << endl;
-	for (int i = 0 ; i < _K ; i++)
-	{
-		cout << _gpSize[i] << endl;
-	}
- }//It was to debug code : should not be ther if it is.

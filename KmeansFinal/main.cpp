@@ -9,8 +9,8 @@
 using namespace std;
 
 //Screen attributes
-const int  SCREEN_WIDTH = 800; //SCREEN_WIDTH/10 doit être paire !
-const int SCREEN_HEIGHT = 460; //SCREEN_HEIGHT/10 doit être paire !
+const int  SCREEN_WIDTH = 800; //Peut être modifié mais SCREEN_WIDTH/10 doit être paire !
+const int SCREEN_HEIGHT = 460; //Peut être modifié mais SCREEN_HEIGHT/10 doit être paire !
 const int SCREEN_BPP = 32;
 
 //The surfaces
@@ -100,7 +100,7 @@ bool handlePressKeyRight(bool DoFindGroup, Kmeans& Km)
 					if( DoFindGroup )
 					{
 						Km.FindGroup();
-						DoFindGroup = 0;
+						DoFindGroup = 0; //If we have done FindGroup, the next time we have to do FindCentroid.
 					}
 					else
 					{
@@ -127,14 +127,16 @@ int main( int argc, char* args[] )
 	// Le fichier (data) contenant la données doit contenir comme premier élément
 	// le nombre de ligne et comme second le nombre de colonnes puis les données.
 
-    data = "base.txt";
+    data = "data2.txt";
 	
     // Le fichier (centroids) contenant les centroids initiaux doit contenir 
     // comme premier élément le nombre de centroids puis les centroids.
-	centroids = "centroids.txt";
+	centroids = "centroids_c2.txt";
 
 	//The maths part !
 	Kmeans Km(data,centroids); 
+
+	
 
     //Quit flag
     bool quit = false;

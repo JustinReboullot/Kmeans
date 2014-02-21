@@ -80,7 +80,7 @@
   <ItemGroup>
     <ClCompile Include="graphical_functions.cpp" />
     <ClCompile Include="Kmeans.cpp" />
-    <ClCompile Include="mainJustin.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="graphical_functions.h" />
