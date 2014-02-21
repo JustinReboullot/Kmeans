@@ -72,17 +72,17 @@ Kmeans::Kmeans(string data , string centroids )
 
 }
 
-
 Kmeans::~Kmeans(void)
 {
 }
 
-
 void Kmeans::FindGroup()
 {
 
+
 	double normref = 0;  //On calcule la norme associée au premier barycentre.
     double norm = 0;    //Calcule de la norme.
+
 
     for (int i = 0; i < _K; i++)
 	{
@@ -148,8 +148,6 @@ void Kmeans::FindCentroids()
 	}
 }
 
-
-
 void Kmeans::DisplayGpIndex()
 {
 	cout << " Indices :" << endl;
@@ -157,7 +155,7 @@ void Kmeans::DisplayGpIndex()
 	{
 		cout << _gpIndex[i] << endl;
 	}
-}
+}//It was to debug code : should not be ther if it is.
 
 void Kmeans::DisplayCentroids()
 {
@@ -170,7 +168,7 @@ void Kmeans::DisplayCentroids()
 		}
 		cout << endl;
 	}
-}
+}//It was to debug code : should not be ther if it is.
 
 void Kmeans::DisplayGpSize()
 {
@@ -179,4 +177,4 @@ void Kmeans::DisplayGpSize()
 	{
 		cout << _gpSize[i] << endl;
 	}
- }
+ }//It was to debug code : should not be ther if it is.
