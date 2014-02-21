@@ -14,7 +14,6 @@ const int SCREEN_HEIGHT = 460; //Peut être modifié mais SCREEN_HEIGHT/10 doit êt
 const int SCREEN_BPP = 32;
 
 //The surfaces
-SDL_Surface *points = NULL;
 SDL_Surface *screen = NULL;
 
 //The event structure
@@ -127,11 +126,11 @@ int main( int argc, char* args[] )
 	// Le fichier (data) contenant la données doit contenir comme premier élément
 	// le nombre de ligne et comme second le nombre de colonnes puis les données.
 
-    data = "data2.txt";
+    data = "data4.txt";
 	
     // Le fichier (centroids) contenant les centroids initiaux doit contenir 
     // comme premier élément le nombre de centroids puis les centroids.
-	centroids = "centroids_c2.txt";
+	centroids = "centroids_c4.txt";
 
 	//The maths part !
 	Kmeans Km(data,centroids); 
