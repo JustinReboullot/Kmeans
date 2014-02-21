@@ -1,6 +1,10 @@
+#pragma once
+
+#include "Kmeans.h"
+#include <iostream>
 #include <vector>
 #include <string>
-#pragma once
+#include <fstream>
 using namespace std;
 
 
@@ -18,6 +22,5 @@ int _D, _N, _K;
 vector<int> _gpIndex;  //vector containing the group number of each vector.
 vector< vector<double> >  _centroids;  //the K centroids
 vector<int> _gpSize;  //a vector containing the size of each group.
-private:
 vector< vector<double> > _data;  //the N vectors of dimension D
 }; 

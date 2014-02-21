@@ -78,13 +78,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="data_generation_functions.cpp" />
     <ClCompile Include="graphical_functions.cpp" />
     <ClCompile Include="Kmeans.cpp" />
     <ClCompile Include="mainJustin.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="data_generation_functions.h" />
     <ClInclude Include="graphical_functions.h" />
     <ClInclude Include="Kmeans.h" />
   </ItemGroup>

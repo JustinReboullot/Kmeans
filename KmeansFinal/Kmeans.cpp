@@ -1,9 +1,4 @@
 #include "Kmeans.h"
-#include <iostream>
-#include <vector>
-#include <string>
-#include <fstream>
-using namespace std;
 
 
 Kmeans::Kmeans(string data , string centroids )
@@ -78,29 +73,24 @@ Kmeans::~Kmeans(void)
 
 void Kmeans::FindGroup()
 {
-
-
-	double normref = 0;  //On calcule la norme associée au premier barycentre.
-    double norm = 0;    //Calcule de la norme.
-
-
-    for (int i = 0; i < _K; i++)
+	for (int i = 0; i < _K; i++) // On initialise la taille des groupes.
 	{
 		_gpSize[i] = 0;
 	}
 
 	for (int i = 0; i < _N; i++)  //Pour chaque vecteur de data
-	{
-		
+	{	
+		double normref = 0;  
+		double norm = 0; 
+
 		for(int d = 0; d < _D; d++)
 		{
 			normref += (_data[i][d] - _centroids[0][d])*(_data[i][d] - _centroids[0][d]);
 		}
-	_gpIndex[i] = 0;  //Par défaut, on commence par dire que "i" appartient au groupe 0 (le premier groupe).
+		_gpIndex[i] = 0;  //Par défaut, on commence par dire que "i" appartient au groupe 0 (le premier groupe).
 
 		for(int k = 1; k < _K; k++)  //On calcule chaque autre norme en la comparant avec celle associé au premier barycentre.
 		{
-			
 			for(int d = 0; d < _D; d++)
 			{
 				norm += (_data[i][d] - _centroids[k][d])*(_data[i][d] - _centroids[k][d]);
@@ -111,7 +101,7 @@ void Kmeans::FindGroup()
 				_gpIndex[i] = k; //Si la norme associé au groupe k est plus petite
 			}
 		}
-		for(int k = 0; k < _K; k++)  //incrémente la taille du groupe auquel appartient "i". (on aurait pu faire mieux ça doit pas gagner un temps considérable puisque K est typiquement petit)
+		for(int k = 0; k < _K; k++)  //incrémente la taille du groupe auquel appartient "i".
 		{
 			if (_gpIndex[i] == k)
 			{

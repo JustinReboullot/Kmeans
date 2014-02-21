@@ -9,21 +9,7 @@ using namespace std;
 
 int main()
 {
-	// definition des chemins
-	// Les chemins étant relatifs, il faut que les deux fichiers de données soient
-	// dans le même dossier que celui du code.
-	string data;
-	string centroids;
-	/// Precisez l'adresse des fichiers contenant les données et les centroids.
 
-	// Le fichier (data) contenant la données doit contenir comme premier élément
-	// le nombre de ligne et comme second le nombre de colonnes puis les données.
-
-    data = "base.txt";
-	
-    // Le fichier (centroids) contenant les centroids initiaux doit contenir 
-    // comme premier élément le nombre de centroids puis les centroids.
-	centroids = "centroids.txt";
 
 
 	// Kmeans

@@ -1,22 +1,12 @@
-/*This source code copyrighted by Lazy Foo' Productions (2004-2013)
-and may not be redistributed without written permission.*/
-#define N1 10
-#define D1 2
-#define K1 2
-
 //The headers
-#include <vector>
 #include "SDL.h"
 #include "SDL_gfxPrimitives.h"
 #include "graphical_functions.h"
-#include "data_generation_functions.h"
 #include "Kmeans.h"
+#include <vector>
 #include <iostream>
-#include <fstream>//It was to debug code : should not be ther if it is.
+#include <string>
 using namespace std;
-
-//It was to debug code : should not be ther if it is. 
-ofstream dout("C:\\Users\\Justin\\Desktop\\debug.txt");
 
 //Screen attributes
 const int  SCREEN_WIDTH = 800; //SCREEN_WIDTH/10 doit être paire !
@@ -29,9 +19,6 @@ SDL_Surface *screen = NULL;
 
 //The event structure
 SDL_Event event;
-
-//The portions of the sprite map to be blitted
-SDL_Rect clip[ 4 ];
 
 
 //To initialize what has to be initialized.
@@ -130,27 +117,24 @@ bool handlePressKeyRight(bool DoFindGroup, Kmeans& Km)
 
 int main( int argc, char* args[] )
 {
-	double data[N1][D1];
-	for (int i = 0 ; i < 5 ; i++)
-	{
-		data[i][0] = 1 + 2*double(i);
-		data[i][1] = 1 + 2*double(i);
-	}
-	for (int i = 5 ; i < 10 ; i++)
-	{
-		data[i][0] = -1 - 2*double(i - 5);
-		data[i][1] = -1 - 2*double(i - 5);
-	}
+	// definition des chemins
+	// Les chemins étant relatifs, il faut que les deux fichiers de données soient
+	// dans le même dossier que celui du code.
+	string data;
+	string centroids;
+	/// Precisez l'adresse des fichiers contenant les données et les centroids.
 
+	// Le fichier (data) contenant la données doit contenir comme premier élément
+	// le nombre de ligne et comme second le nombre de colonnes puis les données.
 
-	double centroids[K1][D1];
-	centroids[0][0] = -10;
-	centroids[0][1] = -10;
-	centroids[1][0] = 10;
-	centroids[1][1] = 10;
+    data = "base.txt";
+	
+    // Le fichier (centroids) contenant les centroids initiaux doit contenir 
+    // comme premier élément le nombre de centroids puis les centroids.
+	centroids = "centroids.txt";
 
 	//The maths part !
-	Kmeans Km(data,centroids,D1,N1,K1); 	
+	Kmeans Km(data,centroids); 
 
     //Quit flag
     bool quit = false;
@@ -187,7 +171,8 @@ int main( int argc, char* args[] )
         }
 
 		//Fill the screen white
-		FillScreenData(screen,Km);		
+		FillScreenData(screen,Km);
+
 
 		//Update the screen
 		if( SDL_Flip( screen ) == -1 )
@@ -195,7 +180,7 @@ int main( int argc, char* args[] )
 			 return 1;    
 		}
     }
-
+	
     //Quit SDL
     SDL_Quit();
 
