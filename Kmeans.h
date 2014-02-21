@@ -1,6 +1,5 @@
-#define D1 2
 #include <vector>
-
+#include <string>
 #pragma once
 using namespace std;
 
@@ -8,7 +7,7 @@ using namespace std;
 class Kmeans
 {
 public:
-Kmeans(double data[][D1], double centroids[][D1], int D, int N, int K );
+Kmeans(string data, string centroids);
 ~Kmeans();
 void FindGroup();
 void FindCentroids();

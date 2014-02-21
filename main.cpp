@@ -1,10 +1,6 @@
-#define K1 2 
-#define D1 2 
-#define N1 10 
-
-
 #include <iostream>
 #include <vector>
+#include <string>
 #include "Kmeans.h"
 
 using namespace std;
@@ -13,34 +9,27 @@ using namespace std;
 
 int main()
 {
-	double d[N1][D1];
-	for (int i = 0 ; i < 5 ; i++)
-	{
-		d[i][0] = 1 + double(i)/10;
-		d[i][1] = 1 - double(i)/10;
-	}
-	for (int i = 5 ; i < 10 ; i++)
-	{
-		d[i][0] = -1 + double(i - 5)/10;
-		d[i][1] = -1 - double(i - 5)/10;
-	}
+	// definition des chemins
+	// Les chemins étant relatifs, il faut que les deux fichiers de données soient
+	// dans le même dossier que celui du code.
+	string data;
+	string centroids;
+	/// Precisez l'adresse des fichiers contenant les données et les centroids.
 
-	for (int i = 0 ; i < N1 ; i++)
-	{
-		cout << d[i][0] << " " << d[i][1] << endl;
-	}
+	// Le fichier (data) contenant la données doit contenir comme premier élément
+	// le nombre de ligne et comme second le nombre de colonnes puis les données.
 
-
-	double c[K1][D1];
-	c[0][0] = -0.5;
-	c[0][1] = 0.5;
-	c[1][0] = 0.5;
-	c[1][1] = -0.5;
-
-/////////////////////////////////////////////////
+    data = "base.txt";
+	
+    // Le fichier (centroids) contenant les centroids initiaux doit contenir 
+    // comme premier élément le nombre de centroids puis les centroids.
+	centroids = "centroids.txt";
 
 
-	Kmeans Km(d,c,2,10,2);
+	// Kmeans
+
+
+	Kmeans Km(data,centroids);
 
 	 Km.DisplayCentroids(); 
 	 Km.DisplayGpSize();
