@@ -1,11 +1,13 @@
 Kmeans
 ======
 
-Ceci est un Kmeans représenté en 2D. A partir de deux fichier de donnée .txt correctement ordonnés, un pour les observations, l'autre pour les centroids initiaux, l'algorithme regroupe les differentes observations en K groupes. La représentaion à l'écran n'accepte que K allant jusqu'à 5. Deux couples de fichiers txt sont donnés ((data2,centroids_c2) et (data4, centroids_c4)).
-Si vous souhaitez utiliser d'autres données. Il faut que le fichier contenant les observations ait cette forme :
+Ceci est un Kmeans reprï¿½sentï¿½ en 2D. A partir de deux fichier de donnï¿½e .txt correctement ordonnï¿½s, un pour les observations, l'autre pour les centroids initiaux, l'algorithme regroupe les differentes observations en K groupes. La reprï¿½sentaion ï¿½ l'ï¿½cran n'accepte que K allant jusqu'ï¿½ 5. Deux couples de fichiers txt sont donnï¿½s ((data2,centroids_c2) et (data4, centroids_c4)).
+Si vous souhaitez utiliser d'autres donnï¿½es. Il faut que le fichier contenant les observations ait cette forme :
 
 Nombre_Observations Dimension x1 y1 x2 y2 ... xN yN
 
-Le fichier contenant les centroids de départ doit être ainsi :
+Le fichier contenant les centroids de dï¿½part doit ï¿½tre ainsi :
 
 Nombre_groupes Dimension x1 y1 x2 y2 ... xK yK
+
+Pour itÃ©rer le Kmeans graphiquement, il suffit d'appuyer sur la flÃ¨che droite du clavier.
